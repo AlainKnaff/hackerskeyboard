@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId = 'org.pocketworkstation.pckeyboard'
         minSdkVersion = 21
-        targetSdkVersion = 36
+        targetSdkVersion = 34
         versionCode = 1041001
         versionName = "v1.41.1"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
