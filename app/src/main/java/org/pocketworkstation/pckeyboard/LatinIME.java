@@ -2394,8 +2394,8 @@ public class LatinIME extends InputMethodService implements
                 setModMeta(!mModMeta);
             break;
         case LatinKeyboardView.KEYCODE_FN:
-            if (!distinctMultiTouch)
-                setModFn(!mModFn);
+            //*//Pulya max: Fix of changing keyboard mode if extension is enabled
+            setModFn(!mModFn);
             break;
         case Keyboard.KEYCODE_CANCEL:
             if (!isShowingOptionDialog()) {
@@ -3720,7 +3720,7 @@ public class LatinIME extends InputMethodService implements
             sendMetaKey(ic, true, true);
         } else if (distinctMultiTouch
                 && primaryCode == LatinKeyboardView.KEYCODE_FN) {
-            setModFn(!mModFn);
+            //*//setModFn(!mModFn);        Pulya max: Fix of changing keyboard mode if extension is enabled
             mFnKeyState.onPress();
         } else {
             mShiftKeyState.onOtherKeyPressed();
@@ -3779,9 +3779,9 @@ public class LatinIME extends InputMethodService implements
             mMetaKeyState.onRelease();
         } else if (distinctMultiTouch
                 && primaryCode == LatinKeyboardView.KEYCODE_FN) {
-            if (mFnKeyState.isChording()) {
+            /*if (mFnKeyState.isChording()) {
                 setModFn(false);
-            }
+            }*/
             mFnKeyState.onRelease();
         }
         // WARNING: Adding a chording modifier key? Make sure you also
