@@ -727,23 +727,17 @@ public class LatinIME extends InputMethodService implements
     		}
     	}
     }
-
-    private void resetCompletions() {
-        mComposing.setLength(0);
-        mPredicting = false;
-        postUpdateSuggestions();
-        TextEntryState.reset();
-    }
-
+    
     @Override
     public void onStartInput(EditorInfo attribute, boolean restarting) {
         super.onStartInput(attribute, restarting);
-        if(!restarting)
-            resetCompletions();
         // setCandidatesViewShown(true);
         setCandidatesViewShownInternal(true, false);
         super.setCandidatesViewShown(true);
-        hideWindow();
+        // hideWindow breaks subsequent call to onStartInputView which is
+        // important for resetting candidate list when changing input field,
+        // and for chosing numeric keypad where needed
+        // hideWindow();
     }
 
     @Override
@@ -1015,7 +1009,10 @@ public class LatinIME extends InputMethodService implements
         // clear whatever candidate text we have.
         if ((((mComposing.length() > 0 && mPredicting))
                 && (newSelStart != candidatesEnd || newSelEnd != candidatesEnd) && mLastSelectionStart != newSelStart)) {
-            resetCompletions();
+            mComposing.setLength(0);
+            mPredicting = false;
+            postUpdateSuggestions();
+            TextEntryState.reset();
             InputConnection ic = getCurrentInputConnection();
             if (ic != null) {
                 ic.finishComposingText();
