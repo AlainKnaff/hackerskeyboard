@@ -119,7 +119,6 @@ public class LatinIME extends InputMethodService implements
     static final String PREF_FULLSCREEN_OVERRIDE = "fullscreen_override";
     static final String PREF_FORCE_KEYBOARD_ON = "force_keyboard_on";
     static final String PREF_KEYBOARD_NOTIFICATION = "keyboard_notification";
-    static final String PREF_CONNECTBOT_TAB_HACK = "connectbot_tab_hack";
     static final String PREF_FULL_KEYBOARD_IN_PORTRAIT = "full_keyboard_in_portrait";
     static final String PREF_SUGGESTIONS_IN_LANDSCAPE = "suggestions_in_landscape";
     static final String PREF_HEIGHT_PORTRAIT = "settings_height_portrait";
@@ -181,7 +180,7 @@ public class LatinIME extends InputMethodService implements
     private boolean mEnableVoiceButton;
     private CharSequence mBestWord;
     private boolean mPredictionOnForMode;
-    private boolean mPredictionOnPref;    
+    private boolean mPredictionOnPref;
     private boolean mCompletionOn;
     private boolean mHasDictionary;
     private boolean mAutoSpace;
@@ -209,7 +208,6 @@ public class LatinIME extends InputMethodService implements
     private boolean mQuickFixes;
     private boolean mShowSuggestions;
     private boolean mIsShowingHint;
-    private boolean mConnectbotTabHack;
     private boolean mFullscreenOverride;
     private boolean mForceKeyboardOn;
     private boolean mKeyboardNotification;
@@ -223,9 +221,9 @@ public class LatinIME extends InputMethodService implements
     private String mVolUpAction;
     private String mVolDownAction;
 
-    public static final GlobalKeyboardSettings sKeyboardSettings = new GlobalKeyboardSettings(); 
+    public static final GlobalKeyboardSettings sKeyboardSettings = new GlobalKeyboardSettings();
     static LatinIME sInstance;
-    
+
     private int mHeightPortrait;
     private int mHeightLandscape;
     private int mNumKeyboardModes = 3;
@@ -282,7 +280,7 @@ public class LatinIME extends InputMethodService implements
     private Map<String, List<CharSequence>> mWordToSuggestions = new HashMap<String, List<CharSequence>>();
 
     private ArrayList<WordAlternatives> mWordHistory = new ArrayList<WordAlternatives>();
-    
+
     private PluginManager mPluginManager;
     private NotificationReceiver mNotificationReceiver;
 
@@ -379,8 +377,6 @@ public class LatinIME extends InputMethodService implements
         Resources res = getResources();
         mReCorrectionEnabled = prefs.getBoolean(PREF_RECORRECTION_ENABLED,
                 res.getBoolean(R.bool.default_recorrection_enabled));
-        mConnectbotTabHack = prefs.getBoolean(PREF_CONNECTBOT_TAB_HACK,
-                res.getBoolean(R.bool.default_connectbot_tab_hack));
         mFullscreenOverride = prefs.getBoolean(PREF_FULLSCREEN_OVERRIDE,
                 res.getBoolean(R.bool.default_fullscreen_override));
         mForceKeyboardOn = prefs.getBoolean(PREF_FORCE_KEYBOARD_ON,
@@ -403,7 +399,7 @@ public class LatinIME extends InputMethodService implements
         sKeyboardSettings.initPrefs(prefs, res);
 
         mVoiceRecognitionTrigger = new VoiceRecognitionTrigger(this);
-        
+
         updateKeyboardOptions();
 
         PluginManager.getPluginDictionaries(getApplicationContext());
@@ -443,7 +439,7 @@ public class LatinIME extends InputMethodService implements
         if (mNumKeyboardModes == 2 && num == 1) num = 2; // skip "compact". FIXME!
         return num;
     }
-    
+
     private void updateKeyboardOptions() {
         //Log.i(TAG, "setFullKeyboardOptions " + fullInPortrait + " " + heightPercentPortrait + " " + heightPercentLandscape);
         boolean isPortrait = isPortrait();
@@ -492,7 +488,7 @@ public class LatinIME extends InputMethodService implements
             pFilter.addAction(NotificationReceiver.ACTION_SETTINGS);
             ContextCompat.registerReceiver(this,mNotificationReceiver, pFilter,
                                            ContextCompat.RECEIVER_EXPORTED);
-            
+
             Intent notificationIntent = new Intent(NotificationReceiver.ACTION_SHOW);
             PendingIntent contentIntent = PendingIntent.getBroadcast(getApplicationContext(), 1, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
             //PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
@@ -547,7 +543,7 @@ public class LatinIME extends InputMethodService implements
             mNotificationReceiver = null;
         }
     }
-    
+
     private boolean isPortrait() {
         return (mOrientation == Configuration.ORIENTATION_PORTRAIT);
     }
@@ -715,7 +711,7 @@ public class LatinIME extends InputMethodService implements
     public AbstractInputMethodImpl onCreateInputMethodInterface() {
     	return new MyInputMethodImpl();
     }
-    
+
     IBinder mToken;
     public class MyInputMethodImpl extends InputMethodImpl {
     	@Override
@@ -727,7 +723,7 @@ public class LatinIME extends InputMethodService implements
     		}
     	}
     }
-    
+
     @Override
     public void onStartInput(EditorInfo attribute, boolean restarting) {
         super.onStartInput(attribute, restarting);
@@ -781,7 +777,7 @@ public class LatinIME extends InputMethodService implements
         mDeleteCount = 0;
         mJustAddedAutoSpace = false;
     }
-    
+
     @Override
     public void onStartInputView(EditorInfo attribute, boolean restarting) {
         sKeyboardSettings.editorPackageName = attribute.packageName;
@@ -826,7 +822,7 @@ public class LatinIME extends InputMethodService implements
         if (mVoiceRecognitionTrigger != null) {
             mVoiceRecognitionTrigger.onStartInputView();
         }
-        
+
         mInputTypeNoAutoCorrect = false;
         mPredictionOnForMode = false;
         mCompletionOn = false;
@@ -1183,7 +1179,7 @@ public class LatinIME extends InputMethodService implements
     	//Log.i(TAG, "OnEvaluateInputViewShown, parent=" + parent + " + " wanted=" + wanted);
     	return wanted;
     }
-    
+
     @Override
     public void setCandidatesViewShown(boolean shown) {
         setCandidatesViewShownInternal(shown, true /* needsInputViewShown */);
@@ -1205,7 +1201,7 @@ public class LatinIME extends InputMethodService implements
         // mode
         float dimen = getResources().getDimension(
                 R.dimen.max_height_for_fullscreen);
-        if (displayHeight > dimen || mFullscreenOverride || isConnectbot()) {
+        if (displayHeight > dimen || mFullscreenOverride) {
             return false;
         } else {
             return super.onEvaluateFullscreenMode();
@@ -1340,7 +1336,7 @@ public class LatinIME extends InputMethodService implements
         }
         if (ic != null) {
             // Clear modifiers other than shift, to avoid them getting stuck
-            int states = 
+            int states =
                 KeyEvent.META_FUNCTION_ON
                 | KeyEvent.META_ALT_MASK
                 | KeyEvent.META_CTRL_MASK
@@ -1509,17 +1505,6 @@ public class LatinIME extends InputMethodService implements
         return mOptionsDialog != null && mOptionsDialog.isShowing();
     }
 
-    private boolean isConnectbot() {
-        EditorInfo ei = getCurrentInputEditorInfo();
-        String pkg = ei.packageName;
-        if (ei == null || pkg == null) return false;
-        return ((pkg.equalsIgnoreCase("org.connectbot")
-            || pkg.equalsIgnoreCase("org.woltage.irssiconnectbot")
-            || pkg.equalsIgnoreCase("com.pslib.connectbot")
-            || pkg.equalsIgnoreCase("sk.vx.connectbot")
-        ) && ei.inputType == 0); // FIXME
-    }
-
     private int getMetaState(boolean shifted) {
         int meta = 0;
         if (shifted) meta |= KeyEvent.META_SHIFT_ON | KeyEvent.META_SHIFT_LEFT_ON;
@@ -1670,98 +1655,8 @@ public class LatinIME extends InputMethodService implements
     }
 
     private void sendSpecialKey(int code) {
-        if (!isConnectbot()) {
-            commitTyped(getCurrentInputConnection(), true);
-            sendModifiedKeyDownUp(code);
-            return;
-        }
-
-        // TODO(klausw): properly support xterm sequences for Ctrl/Alt modifiers?
-        // See http://slackware.osuosl.org/slackware-12.0/source/l/ncurses/xterm.terminfo
-        // and the output of "$ infocmp -1L". Support multiple sets, and optional 
-        // true numpad keys?
-        if (ESC_SEQUENCES == null) {
-            ESC_SEQUENCES = new HashMap<Integer, String>();
-            CTRL_SEQUENCES = new HashMap<Integer, Integer>();
-
-            // VT escape sequences without leading Escape
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_HOME, "[1~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_END, "[4~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_PAGE_UP, "[5~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_PAGE_DOWN, "[6~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F1, "OP");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F2, "OQ");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F3, "OR");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F4, "OS");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F5, "[15~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F6, "[17~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F7, "[18~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F8, "[19~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F9, "[20~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F10, "[21~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F11, "[23~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F12, "[24~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FORWARD_DEL, "[3~");
-            ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_INSERT, "[2~");
-
-            // Special ConnectBot hack: Ctrl-1 to Ctrl-0 for F1-F10.
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F1, KeyEvent.KEYCODE_1);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F2, KeyEvent.KEYCODE_2);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F3, KeyEvent.KEYCODE_3);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F4, KeyEvent.KEYCODE_4);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F5, KeyEvent.KEYCODE_5);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F6, KeyEvent.KEYCODE_6);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F7, KeyEvent.KEYCODE_7);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F8, KeyEvent.KEYCODE_8);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F9, KeyEvent.KEYCODE_9);
-            CTRL_SEQUENCES.put(-LatinKeyboardView.KEYCODE_FKEY_F10, KeyEvent.KEYCODE_0);
-
-            // Natively supported by ConnectBot
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_DPAD_UP, "OA");
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_DPAD_DOWN, "OB");
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_DPAD_LEFT, "OD");
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_DPAD_RIGHT, "OC");
-
-            // No VT equivalents?
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_DPAD_CENTER, "");
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_SYSRQ, "");
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_BREAK, "");
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_NUM_LOCK, "");
-            // ESC_SEQUENCES.put(-LatinKeyboardView.KEYCODE_SCROLL_LOCK, "");
-        }
-        InputConnection ic = getCurrentInputConnection();
-        Integer ctrlseq = null;
-        if (mConnectbotTabHack) {
-            ctrlseq = CTRL_SEQUENCES.get(code);
-        }
-        String seq = ESC_SEQUENCES.get(code);
-
-        if (ctrlseq != null) {
-            if (mModAlt) {
-                // send ESC prefix for "Alt"
-                ic.commitText(Character.toString((char) 27), 1);
-            }
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,
-                    KeyEvent.KEYCODE_DPAD_CENTER));
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP,
-                    KeyEvent.KEYCODE_DPAD_CENTER));
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,
-                    ctrlseq));
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP,
-                    ctrlseq));
-        } else if (seq != null) {
-            if (mModAlt) {
-                // send ESC prefix for "Alt"
-                ic.commitText(Character.toString((char) 27), 1);
-            }
-            // send ESC prefix of escape sequence
-            ic.commitText(Character.toString((char) 27), 1);
-            ic.commitText(seq, 1);
-        } else {
-            // send key code, let connectbot handle it
-            sendDownUpKeyEvents(code);
-        }
-        handleModifierKeysUp(false, false);
+	commitTyped(getCurrentInputConnection(), true);
+	sendModifiedKeyDownUp(code);
     }
 
     private final static int asciiToKeyCode[] = new int[127];
@@ -1827,26 +1722,6 @@ public class LatinIME extends InputMethodService implements
         boolean modShift = isShiftMod();
         if ((modShift || mModCtrl || mModAlt || mModMeta) && ch > 0 && ch < 127) {
             InputConnection ic = getCurrentInputConnection();
-            if (isConnectbot()) {
-                if (mModAlt) {
-                    // send ESC prefix
-                    ic.commitText(Character.toString((char) 27), 1);
-                }
-                if (mModCtrl) {
-                    int code = ch & 31;
-                    if (code == 9) {
-                        sendTab();
-                    } else {
-                        ic.commitText(Character.toString((char) code), 1);
-                    }
-                } else {
-                    ic.commitText(Character.toString(ch), 1);
-                }
-                handleModifierKeysUp(false, false);
-                return;
-            }
-
-            // Non-ConnectBot
 
             // Restrict Shift modifier to ENTER and SPACE, supporting Shift-Enter etc.
             // Note that most special keys such as DEL or cursor keys aren't handled
@@ -1912,36 +1787,13 @@ public class LatinIME extends InputMethodService implements
         // Default handling for anything else, including unmodified ENTER and SPACE.
         sendKeyChar(ch);
     }
-    
-    private void sendTab() {
-        InputConnection ic = getCurrentInputConnection();
-        boolean tabHack = isConnectbot() && mConnectbotTabHack;
 
-        // FIXME: tab and ^I don't work in connectbot, hackish workaround
-        if (tabHack) {
-            if (mModAlt) {
-                // send ESC prefix
-                ic.commitText(Character.toString((char) 27), 1);
-            }
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,
-                    KeyEvent.KEYCODE_DPAD_CENTER));
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP,
-                    KeyEvent.KEYCODE_DPAD_CENTER));
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN,
-                    KeyEvent.KEYCODE_I));
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP,
-                    KeyEvent.KEYCODE_I));
-        } else {
-            sendModifiedKeyDownUp(KeyEvent.KEYCODE_TAB);
-        }
+    private void sendTab() {
+	sendModifiedKeyDownUp(KeyEvent.KEYCODE_TAB);
     }
 
     private void sendEscape() {
-        if (isConnectbot()) {
-            sendKeyChar((char) 27);
-        } else {
-            sendModifiedKeyDownUp(111 /*KeyEvent.KEYCODE_ESCAPE */);
-        }
+	sendModifiedKeyDownUp(111 /*KeyEvent.KEYCODE_ESCAPE */);
     }
 
     private boolean processMultiKey(int primaryCode) {
@@ -2269,7 +2121,7 @@ public class LatinIME extends InputMethodService implements
     private static int getCapsOrShiftLockState() {
         return sKeyboardSettings.capsLock ? Keyboard.SHIFT_CAPS_LOCKED : Keyboard.SHIFT_LOCKED;
     }
-    
+
     // Rotate through shift states by successively pressing and releasing the Shift key.
     private static int nextShiftState(int prevState, boolean allowCapsLock) {
         if (allowCapsLock) {
@@ -2490,7 +2342,7 @@ public class LatinIME extends InputMethodService implements
     private void switchToKeyboardView() {
         mHandler.post(new Runnable() {
             public void run() {
-                LatinKeyboardView view = mKeyboardSwitcher.getInputView(); 
+                LatinKeyboardView view = mKeyboardSwitcher.getInputView();
                 if (view != null) {
                     ViewParent p = view.getParent();
                     if (p != null && p instanceof ViewGroup) {
@@ -2532,7 +2384,7 @@ public class LatinIME extends InputMethodService implements
         if ((mSuggest == null || !isPredictionOn())) {
             return;
         }
-        
+
         if (!mPredicting) {
             setNextSuggestions();
             return;
@@ -2958,7 +2810,7 @@ public class LatinIME extends InputMethodService implements
         Log.i("PCKeyboard", "onSharedPreferenceChanged()");
         boolean needReload = false;
         Resources res = getResources();
-        
+
         // Apply globally handled shared prefs
         sKeyboardSettings.sharedPreferenceChanged(sharedPreferences, key);
         if (sKeyboardSettings.hasFlag(GlobalKeyboardSettings.FLAG_PREF_NEED_RELOAD)) {
@@ -2995,10 +2847,6 @@ public class LatinIME extends InputMethodService implements
                         res.getString(R.string.recorrect_warning), Toast.LENGTH_LONG)
                         .show();
             }
-        } else if (PREF_CONNECTBOT_TAB_HACK.equals(key)) {
-            mConnectbotTabHack = sharedPreferences.getBoolean(
-                    PREF_CONNECTBOT_TAB_HACK, res
-                            .getBoolean(R.bool.default_connectbot_tab_hack));
         } else if (PREF_FULLSCREEN_OVERRIDE.equals(key)) {
             mFullscreenOverride = sharedPreferences.getBoolean(
                     PREF_FULLSCREEN_OVERRIDE, res
@@ -3084,7 +2932,7 @@ public class LatinIME extends InputMethodService implements
                 mSuggestionForceOff = true;
             } else if (mSuggestionForceOff) {
                 mSuggestionForceOn = true;
-                mSuggestionForceOff = false;                
+                mSuggestionForceOff = false;
             } else if (isPredictionWanted()) {
                 mSuggestionForceOff = true;
             } else {
@@ -3111,7 +2959,7 @@ public class LatinIME extends InputMethodService implements
                 if (mHeightPortrait > 70) mHeightPortrait = 70;
             } else {
                 mHeightLandscape += 5;
-                if (mHeightLandscape > 70) mHeightLandscape = 70;                
+                if (mHeightLandscape > 70) mHeightLandscape = 70;
             }
             toggleLanguage(true, true);
         } else if (action.equals("height_down")) {
@@ -3120,7 +2968,7 @@ public class LatinIME extends InputMethodService implements
                 if (mHeightPortrait < 15) mHeightPortrait = 15;
             } else {
                 mHeightLandscape -= 5;
-                if (mHeightLandscape < 15) mHeightLandscape = 15;                
+                if (mHeightLandscape < 15) mHeightLandscape = 15;
             }
             toggleLanguage(true, true);
         } else {
@@ -3266,18 +3114,18 @@ public class LatinIME extends InputMethodService implements
 
     private float getKeyClickVolume() {
         if (mAudioManager == null) return 0.0f; // shouldn't happen
-        
+
         // The volume calculations are poorly documented, this is the closest I could
         // find for explaining volume conversions:
         // http://developer.android.com/reference/android/media/MediaPlayer.html#setAuxEffectSendLevel(float)
         //
         //   Note that the passed level value is a raw scalar. UI controls should be scaled logarithmically:
-        //   the gain applied by audio framework ranges from -72dB to 0dB, so an appropriate conversion 
+        //   the gain applied by audio framework ranges from -72dB to 0dB, so an appropriate conversion
         //   from linear UI input x to level is: x == 0 -> level = 0 0 < x <= R -> level = 10^(72*(x-R)/20/R)
-        
+
         int method = sKeyboardSettings.keyClickMethod; // See click_method_values in strings.xml
         if (method == 0) return FX_VOLUME;
-        
+
         float targetVol = sKeyboardSettings.keyClickVolume;
 
         if (method > 1) {
@@ -3299,7 +3147,7 @@ public class LatinIME extends InputMethodService implements
         //Log.i(TAG, "getKeyClickVolume absolute, target=" + targetVol + " amp=" + vol);
         return vol;
     }
-    
+
     private void playKeyClick(int primaryCode) {
         // if mAudioManager is null, we don't have the ringer state yet
         // mAudioManager will be set by updateRingerMode
@@ -3347,7 +3195,7 @@ public class LatinIME extends InputMethodService implements
                     HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
         }
     }
-    
+
     /* package */void promoteToUserDictionary(String word, int frequency) {
         if (mUserDictionary.isValidWord(word))
             return;
