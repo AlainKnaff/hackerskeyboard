@@ -591,7 +591,7 @@ public class Keyboard {
                 if ((flags & POPUP_ADD_CASE) != 0) {
                     // if shifted, add unshifted key to popup, and vice versa
                     if (isDistinctUppercase && isShiftCaps) {
-                        if (mainChar > 0) { extra.append((char) mainChar); mainChar = 0; }
+                        // if (mainChar > 0) { extra.append((char) mainChar); mainChar = 0; }
                         if (shiftChar > 0) { extra.append((char) shiftChar); shiftChar = 0; }
                     } else if (isShifted) {
                         if (mainChar > 0) { extra.append((char) mainChar); mainChar = 0; }
@@ -629,7 +629,7 @@ public class Keyboard {
 
             if ((LatinIME.sKeyboardSettings.popupKeyboardFlags & POPUP_DISABLE) != 0) return null;
 
-            String popup = getPopupKeyboardContent(false, false, true);
+            String popup = getPopupKeyboardContent(keyboard.isShiftCaps(), keyboard.isShifted(isSimpleUppercase), true);
             //Log.i(TAG, "getPopupKeyboard: popup='" + popup + "' for " + this);
             if (popup.length() > 0) {
                 int resId = popupResId;
