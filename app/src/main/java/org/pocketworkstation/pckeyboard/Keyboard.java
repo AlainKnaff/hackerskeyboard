@@ -591,7 +591,7 @@ public class Keyboard {
                 if ((flags & POPUP_ADD_CASE) != 0) {
                     // if shifted, add unshifted key to popup, and vice versa
                     if (isDistinctUppercase && isShiftCaps) {
-                        if (mainChar > 0) { extra.append((char) mainChar); mainChar = 0; }
+                        // if (mainChar > 0) { extra.append((char) mainChar); mainChar = 0; }
                         if (shiftChar > 0) { extra.append((char) shiftChar); shiftChar = 0; }
                     } else if (isShifted) {
                         if (mainChar > 0) { extra.append((char) mainChar); mainChar = 0; }
