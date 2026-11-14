@@ -21,7 +21,6 @@
             android:allowBackup="true"
             android:backupAgent="LatinIMEBackupAgent"
             android:restoreAnyVersion="true"
-            android:hardwareAccelerated="false"
             android:killAfterRestore="false"
             android:icon="@drawable/icon">
 
