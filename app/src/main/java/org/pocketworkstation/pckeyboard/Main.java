@@ -95,5 +95,12 @@ public class Main extends Activity {
             }
         });
     }    
-}
 
+    public void importSettings(View v) {
+        startActivity(new Intent(this, ImportSettingsActivity.class));
+    }
+    
+    public void exportSettings(View v) {
+        startActivity(new Intent(this, ExportSettingsActivity.class));
+    }
+}

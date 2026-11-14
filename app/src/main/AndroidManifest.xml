@@ -65,5 +65,13 @@
                 android:label="@string/pref_screen_feedback_title"
                 android:exported="false">
         </activity>
-</application>
+
+        <activity android:name="ImportSettingsActivity"
+                  android:exported="false">
+        </activity>
+
+        <activity android:name="ExportSettingsActivity"
+                  android:exported="false">
+        </activity>
+    </application>
 </manifest>

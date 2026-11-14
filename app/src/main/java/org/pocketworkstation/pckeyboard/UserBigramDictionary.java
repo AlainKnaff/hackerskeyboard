@@ -92,6 +92,7 @@ public class UserBigramDictionary extends ExpandableDictionary {
     private HashSet<Bigram> mPendingWrites = new HashSet<Bigram>();
     private final Object mPendingWritesLock = new Object();
     private static volatile boolean sUpdatingDB = false;
+    public static Object dbLock = new Object();
 
     private final static HashMap<String, String> sDictProjectionMap;
 
@@ -349,6 +350,7 @@ public class UserBigramDictionary extends ExpandableDictionary {
         @Override
         @SuppressLint("Range")
         protected Void doInBackground(Void... v) {
+	  synchronized(dbLock) {
             SQLiteDatabase db = mDbHelper.getWritableDatabase();
             db.execSQL("PRAGMA foreign_keys = ON;");
             // Write all the entries to the db
@@ -383,6 +385,7 @@ public class UserBigramDictionary extends ExpandableDictionary {
             sUpdatingDB = false;
 
             return null;
+	  }
         }
 
         private ContentValues getContentValues(String word1, String word2, String locale) {

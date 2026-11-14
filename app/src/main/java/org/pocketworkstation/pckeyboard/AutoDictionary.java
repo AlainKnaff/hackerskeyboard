@@ -58,6 +58,7 @@ public class AutoDictionary extends ExpandableDictionary {
 
     private static final String DATABASE_NAME = "auto_dict.db";
     private static final int DATABASE_VERSION = 1;
+    public static Object dbLock = new Object();
 
     // These are the columns in the dictionary
     // TODO: Consume less space by using a unique id for locale instead of the whole
@@ -233,6 +234,7 @@ public class AutoDictionary extends ExpandableDictionary {
 
         @Override
         protected Void doInBackground(Void... v) {
+          synchronized(dbLock) {
             SQLiteDatabase db = mDbHelper.getWritableDatabase();
             // Write all the entries to the db
             Set<Entry<String,Integer>> mEntries = mMap.entrySet();
@@ -246,6 +248,7 @@ public class AutoDictionary extends ExpandableDictionary {
                 }
             }
             return null;
+	  }
         }
 
         private ContentValues getContentValues(String word, int frequency, String locale) {
