@@ -1,0 +1,18 @@
+« Fils du clavier du hacker » est un clavier de type PC, le compagnon idéal de Termux
+
+La disposition des touches à laquelle vous êtes habitué sur votre ordinateur vous manque-t-elle lorsque vous utilisez un appareil Android ? Ce clavier virtuel dispose de touches numériques séparées, de signes de ponctuation placés aux emplacements habituels et des touches fléchées. Il est basé sur le clavier virtuel AOSP Gingerbread et prend donc en charge le multitouch pour les touches de modification.
+
+Cette application "partage vers un dossier" est une cible de partage qui enregistre les éléments partagés avec elle dans un dossier.
+
+Ce clavier est particulièrement utile si vous utilisez Termux et/ou l'accès SSH. Il permet d'utiliser les touches Tab, Ctrl et Échap, et les touches fléchées sont pratiques pour l'édition en ligne de commande ou dans les éditeurs en mode texte.
+
+Les dispositions de clavier prises en charge comprennent l'arménien (Հայերեն), l'arabe (العربية), le britannique (en_GB), le bulgare (български език), le tchèque (Čeština), le danois (dansk), l'anglais Carpalx (langue « en-CX »), l'anglais Dvorak (langue « en-DV »), l'anglais (QWERTY), le finnois (Suomi), le français (Français, AZERTY), l'allemand (Deutsch, QWERTZ), l'allemand Neo2 (Deutsch, langue « de-NE »), le grec (ελληνικά), hébreu (עברית), hongrois (Magyar), italien (Italiano), le lao (ພາສາລາວ), le norvégien (Norsk bokmål), le persan (فارسی), le portugais (Português), le roumain (Română), le russe (Русский), la phonétique russe (Русский, ru-rPH), le serbe (Српски), le slovaque (Slovenčina), le slovène (Slovenščina)/bosniaque/croate/serbe latin, l'espagnol (Español, Español Latinoamérica), le suédois (Svenska), le tamoul (தமிழ்), le thaï (ไทย), le turc (Türkçe) et l'ukrainien (українська мова).
+
+Pour l'installer, téléchargez « Fils du clavier du hacker » depuis F-Droid ou directement depuis GitHub, dans l'onglet « Releases » du projet.
+
+« Fils du clavier du hacker » est compatible avec les dictionnaires d'AnySoftKeyboard. Recherchez-les sur F-Droid. AnySoftKeyboard ne fournit actuellement aucun dictionnaire anglais, sans doute parce qu'il est désormais intégré. Cependant, une version non officielle est disponible sur APKPure : 
+https://apkpure.com/english-for-anysoftkeyboard/com.anysoftkeyboard.languagepack.mirfatif.english
+
+Il s'agit d'un fork du clavier « hacker's keyboard » original de Klaus Weidner. La version originale avait pris du retard par rapport à l'évolution d'Android et n'était même plus compilable dans les environnements actuels. J'ai pris l'initiative de la mettre à niveau vers le SDK 37 (Android 17) et, avec l'accord de Klaus, j'ai modifié le nom de l'app afin de pouvoir la publier sur F-Droid.
+
+Si vous disposiez déjà de ma version dérivée sous son nom d'origine, j'ai ajouté des boutons permettant d'exporter les paramètres de l'ancienne version et de les importer dans la nouvelle.

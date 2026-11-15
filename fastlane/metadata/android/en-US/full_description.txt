@@ -1,0 +1,17 @@
+Son of Hacker's Keyboard is a PC style keyboard and the ideal companion for Termux
+
+Are you missing the key layout you're used to from your computer when using an Android device? This software keyboard has separate number keys, punctuation in the usual places, and arrow keys. It is based on the AOSP Gingerbread soft keyboard, so it supports multitouch for the modifier keys.
+
+This keyboard is especially useful if you use Termux and/or SSH access. It provides working Tab/Ctrl/Esc keys, and the arrow keys are convenient for command line editing or text mode editors.
+
+The supported keyboard layouts include Armenian (Հայերեն), Arabic (العربية), British (en_GB), Bulgarian (български език), Czech (Čeština), Danish (dansk), Carpalx English (language "en-CX"), Dvorak English (language "en-DV"), English (QWERTY), Finnish (Suomi), French (Français, AZERTY), German (Deutsch, QWERTZ), German Neo2 (Deutsch, language "de-NE"), Greek (ελληνικά), Hebrew (עברית), Hungarian (Magyar), Italian (Italiano), Lao (ພາສາລາວ), Norwegian (Norsk bokmål), Persian (فارسی), Portuguese (Português), Romanian (Română), Russian (Русский), Russian phonetic (Русский, ru-rPH), Serbian (Српски), Slovak (Slovenčina), Slovenian (Slovenščina)/Bosnian/Croatian/Latin Serbian, Spanish (Español, Español Latinoamérica), Swedish (Svenska), Tamil (தமிழ்), Thai (ไทย), Turkish (Türkçe), and Ukrainian (українська мова).
+
+To install, get Son-of-Hacker's Keyboard from F-Droid or directly from Github from the project's releases tab.
+
+Son-of-Hacker's Keyboard is compatible with AnySoftKeyboard's dictionaries. Search for them on F-Droid. AnySoftKeyboard currently supplies no English dictionary, presumably because it is now builtin. However, an unofficial version can be found on apkpure: 
+https://apkpure.com/english-for-anysoftkeyboard/com.anysoftkeyboard.languagepack.mirfatif.english
+
+This is a fork of the original hacker's keyboard by Klaus Weidner. The original had fallen behind on evolution Android evolution, and was not even compilable any more in today's environments. I took it upon myself to bring it up to Sdk 37 level (Android 17), and, with Klaus' approval changed the name to put into F-Droid.
+
+If you had already my fork with the original name, I have provided buttons to export settings of the old version, and import them into the new version.
+
