@@ -1,37 +1,19 @@
 package org.pocketworkstation.pckeyboard;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.util.Log;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.preference.PreferenceManager;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.TextView.BufferType;
 import android.app.AlertDialog;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.activity.ComponentActivity;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.zip.ZipInputStream;
