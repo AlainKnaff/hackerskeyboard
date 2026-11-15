@@ -643,30 +643,22 @@
         <p><i>Son of Hacker's Keyboard</i> provides a new Android input method. It is <b>disabled by default</b>, and for security reasons Android doesn't allow programs to change input method settings. Please follow the following steps to activate it.<p>
 
         <h3>Add the keyboard to the system's input method list:</h3>
-        <blockquote>
           <p>&#8226; Open the system input settings configuration by pressing the <b>Enable Keyboard</b> button above.</p>
           <p>&#8226; Find <i>Son of Hacker's Keyboard</i> in the input method list, tap the checkmark to switch it on.</p>
           <p>&#8226; Acknowledge the warning shown by the system. The system always shows this message when enabling a third-party input method.</p>
           <p>&#8226; Press the <i>Back</i> button to return to this page.</p>
-        </blockquote>
 
         <h3>Choose the currently active input method:</h3>
-        <blockquote>
           <p>&#8226; Press the <b>Set input method</b> button above.</p>
           <p>&#8226; Select <i>Son of Hacker's Keyboard</i> from the list.</p>
-        </blockquote>
 
         <h3>Optional: Select input languages:</h3>
-        <blockquote>
           <p>&#8226; Press the <b>Input languages</b> button above to select which keyboard layouts you want to use. You <b>must</b> configure this if you want to use a language or layout other than the one corresponding to your system's default language.</p>
           <p>&#8226; Press the <i>Back</i> button to return to this page.</p>
           <p>&#8226; When typing, slide the space bar horizontally to switch between selected layouts.
-        </blockquote>
 
         <h3>Optional: Install completion dictionary packages:</h3>
-        <blockquote>
           <p>&#8226; Press the <b>More</b> button above to do a Play Store search for the keyboard's developer name, this will show free downloadable completion dictionary packages.</p>
-        </blockquote>
 
         <h3>Optional: exporting and importing settings:</h3>
          <p>I am planning to put this hacker's keyboard onto
