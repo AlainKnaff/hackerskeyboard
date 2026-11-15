@@ -37,7 +37,8 @@ public class ImportSettingsActivity extends ComponentActivity {
                                 showError("importing setting", t);
                             }
                     }).start();
-                }
+                } else
+		    finish();
             }
         );
         importLauncher.launch(new String[]{"application/zip"});
@@ -48,7 +49,10 @@ public class ImportSettingsActivity extends ComponentActivity {
                 new AlertDialog.Builder(this)
                     .setTitle("Error while "+action)
                     .setMessage(t.toString())
-                    .setPositiveButton(R.string.ok, (d, w) -> d.dismiss() )
+                    .setPositiveButton(R.string.ok, (d, w) -> {
+			    d.dismiss();
+			    finish();
+		    })
                     .show();
 
             });

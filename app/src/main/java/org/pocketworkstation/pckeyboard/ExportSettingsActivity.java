@@ -36,7 +36,8 @@ public class ExportSettingsActivity extends ComponentActivity {
                                 showError("exporting setting", t);
                             }
                     }).start();
-                }
+                } else
+		    finish();
             }
         );
         exportLauncher.launch("hk-settings.zip");
@@ -47,7 +48,10 @@ public class ExportSettingsActivity extends ComponentActivity {
                 new AlertDialog.Builder(this)
                     .setTitle("Error while "+action)
                     .setMessage(t.toString())
-                    .setPositiveButton(R.string.ok, (d, w) -> d.dismiss() )
+                    .setPositiveButton(R.string.ok, (d, w) -> {
+			    d.dismiss();
+			    finish();
+		    })
                     .show();
 
             });
