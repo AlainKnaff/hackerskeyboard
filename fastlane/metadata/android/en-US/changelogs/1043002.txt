@@ -1,0 +1,2 @@
+- Go back to Sdk 36, apparently F-Droid has a problem with 37
+- Get newest versions of dependencies in .github/workflows/android.yml

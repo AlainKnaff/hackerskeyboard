@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion = 37
+    compileSdkVersion = 36
     namespace = 'lu.knaff.alain.son_of_hacker'
     defaultConfig {
         applicationId = 'lu.knaff.alain.son_of_hacker'
         minSdkVersion = 24
-        targetSdkVersion = 37
-        versionCode = 1043001
-        versionName = "1.43.1"
+        targetSdkVersion = 36
+        versionCode = 1043002
+        versionName = "1.43.2"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
