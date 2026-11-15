@@ -1,0 +1,2 @@
+- Removed voice recognition support: little used, and binary jar in sources makes it difficult to include it into F-Droid
+- Formatting fixes for text displayed in main activity
