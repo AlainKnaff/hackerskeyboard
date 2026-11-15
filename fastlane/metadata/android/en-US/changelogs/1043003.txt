@@ -1,0 +1,3 @@
+- Go again to Sdk 37, that was not the problem why previous attempt failed
+- specify --build-id=none for JNI targets for reproducible builds
+
