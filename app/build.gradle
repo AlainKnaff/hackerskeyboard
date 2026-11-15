@@ -7,8 +7,8 @@ android {
         applicationId = 'lu.knaff.alain.son_of_hacker'
         minSdkVersion = 24
         targetSdkVersion = 37
-        versionCode = 1043003
-        versionName = "1.43.3"
+        versionCode = 1043004
+        versionName = "1.43.4"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -29,7 +29,7 @@ android {
     buildTypes {
         release {
             minifyEnabled = false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig = signingConfigs.release
         }
     }
