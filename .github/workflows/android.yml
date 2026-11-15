@@ -9,16 +9,16 @@ jobs:
      if: startsWith(github.ref, 'refs/tags/')
  
      steps:
-       - uses: actions/checkout@v2.6.0
+       - uses: actions/checkout@v6
  
        - name: Setup JAVA 21
-         uses: actions/setup-java@v3
+         uses: actions/setup-java@v5
          with:
            distribution: 'corretto'
            java-version: 21
  
        - name: Cache Gradle and wrapper
-         uses: actions/cache@v3
+         uses: actions/cache@v5
          with:
            path: |
              ~/.gradle/caches
@@ -51,13 +51,13 @@ jobs:
            mv -v app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/`basename ${GITHUB_REPOSITORY}`_${GITHUB_REF_NAME}.apk
        #4
        - name: Upload Release Build to Artifacts
-         uses: actions/upload-artifact@v4
+         uses: actions/upload-artifact@v6
          with:
            name: release-artifacts
            path: app/build/outputs/apk/release/
        #5
        - name: Create Github Release
-         uses: softprops/action-gh-release@v1
+         uses: softprops/action-gh-release@v3
          with:
            generate_release_notes: false
            files: |
