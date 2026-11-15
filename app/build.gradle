@@ -56,6 +56,12 @@ android {
     //        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
     //    }
     // }
+
+    // needed for reproducible builds
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
 }
 
 dependencies {
