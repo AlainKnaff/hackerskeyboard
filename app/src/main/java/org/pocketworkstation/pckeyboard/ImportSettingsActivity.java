@@ -1,5 +1,7 @@
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.util.Log;
@@ -107,6 +109,9 @@ public class ImportSettingsActivity extends ComponentActivity {
                     zip.closeEntry();
                     continue;
                 }
+
+		name=name.replace("org.pocketworkstation.pckeyboard",
+				  "lu.knaff.alain.son_of_hacker");
 
                 File target = new File(dataDir, name);
                 String targetPath = target.getCanonicalPath();

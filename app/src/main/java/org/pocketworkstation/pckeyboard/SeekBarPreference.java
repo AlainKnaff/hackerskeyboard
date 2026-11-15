@@ -1,5 +1,7 @@
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import java.util.Locale;
 
 import android.content.Context;

@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion = 37
-    namespace = 'org.pocketworkstation.pckeyboard'
+    namespace = 'lu.knaff.alain.son_of_hacker'
     defaultConfig {
-        applicationId = 'org.pocketworkstation.pckeyboard'
+        applicationId = 'lu.knaff.alain.son_of_hacker'
         minSdkVersion = 24
         targetSdkVersion = 37
-        versionCode = 1042012
-        versionName = "1.42.12ak"
+        versionCode = 1043000
+        versionName = "1.43.0"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {

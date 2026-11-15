@@ -3,6 +3,8 @@
  */
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import android.content.Context;
 import android.preference.ListPreference;
 import android.util.AttributeSet;

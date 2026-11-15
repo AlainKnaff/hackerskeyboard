@@ -19,9 +19,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title for Latin keyboard  -->
-    <string name="english_ime_name">Hacker\'s Keyboard</string>
+    <string name="english_ime_name">Son of Hacker\'s Keyboard</string>
     <!-- Title for Latin keyboard settings activity / dialog -->
-    <string name="english_ime_settings">Настройки Hacker\'s Keyboard</string>
+    <string name="english_ime_settings">Настройки Son of Hacker\'s Keyboard</string>
     <!-- Title for Latin keyboard input options dialog -->
     <string name="english_ime_input_options">Параметры ввода</string>
 
@@ -482,14 +482,14 @@
     <string name="main_setup_settings">Настройки</string>
     <string name="main_body"><Data>
       <![CDATA["
-        <h2>Включение Hacker\'s Keyboard</h2>
+        <h2>Включение Son of Hacker\'s Keyboard</h2>
 
-        <p><i>Hacker\'s Keyboard</i> предоставляет новый метод ввода Android. По умолчанию <b>отключен</b> по соображениям безопасности Android и не позволяет программам изменять настройки метода ввода. Для его активации выполните следующие действия.<p>
+        <p><i>Son of Hacker\'s Keyboard</i> предоставляет новый метод ввода Android. По умолчанию <b>отключен</b> по соображениям безопасности Android и не позволяет программам изменять настройки метода ввода. Для его активации выполните следующие действия.<p>
 
         <h3>Добавьте клавиатуру в список методов ввода системы:</h3>
         <blockquote>
           <p>&#8226; Откройте в настройках системы Язык и ввод, и выберите <b>Включить клавиатуру</b></p>
-          <p>&#8226; Найдите <i>Hacker\'s Keyboard</i> в списке методов ввода и нажмите галочку, чтобы включить.</p>
+          <p>&#8226; Найдите <i>Son of Hacker\'s Keyboard</i> в списке методов ввода и нажмите галочку, чтобы включить.</p>
           <p>&#8226; Подтвердите предупреждение, отображаемое системой. Система всегда показывает это сообщение при использовании сторонней клавиатуры.</p>
           <p>&#8226; Нажмите кнопку <i>Назад</i>, чтобы вернуться на эту страницу..</p>
         </blockquote>
@@ -497,7 +497,7 @@
         <h3>Выберите клавиатуру:</h3>
         <blockquote>
           <p>&#8226; Выберете <b>Клавиатуру и метод ввода</b></p>
-          <p>&#8226; Выберете <i>Hacker\'s Keyboard</i> в списке.</p>
+          <p>&#8226; Выберете <i>Son of Hacker\'s Keyboard</i> в списке.</p>
         </blockquote>
 
         <h3>Дополнительно: выберите языки ввода:</h3>

@@ -16,6 +16,8 @@
 
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import android.app.backup.BackupManager;
 import android.content.SharedPreferences;
 import android.os.Bundle;

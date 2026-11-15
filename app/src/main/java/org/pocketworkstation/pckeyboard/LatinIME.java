@@ -16,6 +16,8 @@
 
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import org.pocketworkstation.pckeyboard.LatinIMEUtil.RingCharBuffer;
 
 import com.google.android.voiceime.VoiceRecognitionTrigger;
@@ -498,7 +500,7 @@ public class LatinIME extends InputMethodService implements
                     PendingIntent.getBroadcast(getApplicationContext(), 2, configIntent,
 					       PendingIntent.FLAG_IMMUTABLE);
 
-            String title = "Show Hacker's Keyboard";
+            String title = "Show Son of Hacker's Keyboard";
             String body = "Select this to open the keyboard. Disable in settings.";
 
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)

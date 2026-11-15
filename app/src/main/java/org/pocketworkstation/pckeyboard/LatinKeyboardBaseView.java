@@ -16,6 +16,8 @@
 
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;

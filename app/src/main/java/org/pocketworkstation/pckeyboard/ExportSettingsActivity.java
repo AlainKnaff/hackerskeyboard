@@ -1,5 +1,7 @@
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;

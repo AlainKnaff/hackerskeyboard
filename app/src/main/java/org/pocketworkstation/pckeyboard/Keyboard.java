@@ -16,6 +16,8 @@
 
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Context;

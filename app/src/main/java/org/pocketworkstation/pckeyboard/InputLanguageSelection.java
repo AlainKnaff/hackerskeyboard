@@ -16,6 +16,9 @@
 
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
+
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;

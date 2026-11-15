@@ -16,6 +16,8 @@
 
 package org.pocketworkstation.pckeyboard;
 
+import lu.knaff.alain.son_of_hacker.R;
+
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;

@@ -6,7 +6,7 @@ This is a fork of the original hacker's keyboard by Klaus Weidner. The original 
 
 ## Dictionaries ##
 
-Hacker's keyboard uses Anysoft keyboard's dictionaries (compatible APIs), which you find easily on F-Droid, *except* the English dictionary. Probably because English in built into Anysoft keyboard, and thus it doesn't need any external dictionary for it. Fortunately, you can still find an older version at [Apkpure](https://apkpure.com/english-for-anysoftkeyboard/com.anysoftkeyboard.languagepack.mirfatif.english).
+Son of Hacker's keyboard uses AnysoftKeyboard's dictionaries (compatible APIs), which you find easily on F-Droid, *except* the English dictionary. Probably because English in built into AnysoftKeyboard, and thus it doesn't need any external dictionary for it. Fortunately, you can still find an older version at [Apkpure](https://apkpure.com/english-for-anysoftkeyboard/com.anysoftkeyboard.languagepack.mirfatif.english).
 
 
 # Original README.md #
@@ -32,10 +32,8 @@ Serbian (Српски), Slovak (Slovenčina), Slovenian
 Latinoamérica), Swedish (Svenska), Tamil (தமிழ்), Thai (ไทย), Turkish (Türkçe),
 and Ukrainian (українська мова).
 
-To install, get **[Hacker's
-Keyboard](https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard)**
-from the Play Store, plus optional [dictionary
-packs](https://play.google.com/store/apps/developer?id=Klaus+Weidner).
+To install, get **[Son of Hacker's Keyboard](https://f-droid.org)**
+from F-Droid, plus dictionary packs for AnySoftKeyboard.
 
 ## Additional resources ##
 
