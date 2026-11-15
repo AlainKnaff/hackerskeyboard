@@ -669,17 +669,17 @@
         </blockquote>
 
         <h3>Optional: exporting and importing settings:</h3>
-	 <p>I am planning to put this hacker's keyboard onto
-	 F-Droid. F-Droid rules specify that its applications should
-	 have an applicationId (name) based on a name that the
-	 applicant controls, to avoid that 2 same-named applications
-	 end up on F-Droid. This means that a name change is needed,
-	 which means that settings and user dictionaries will be lost.</p>
+         <p>I am planning to put this hacker's keyboard onto
+         F-Droid. F-Droid rules specify that its applications should
+         have an applicationId (name) based on a name that the
+         applicant controls, to avoid that 2 same-named applications
+         end up on F-Droid. This means that a name change is needed,
+         which means that settings and user dictionaries will be lost.</p>
 
          <p>The Export and Import Settings buttons are meant to ease the
-	 transition from the old name to the new. You export settings
-	 on the old application before the change, and you import them
-	 into the new one after the change</p>
+         transition from the old name to the new. You export settings
+         on the old application before the change, and you import them
+         into the new one after the change</p>
 
         <h2>Additional information</h2>
         <p>Please refer to the <a href='https://github.com/klausw/hackerskeyboard'>project web page</a> for more information, including the user's guide, issue tracker, and discussion group.</p>
