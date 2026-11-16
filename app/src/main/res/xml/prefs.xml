@@ -76,7 +76,7 @@
             android:title="@string/pref_screen_view_title"
             android:summary="@string/pref_screen_view_title_summary">
       <intent
-          android:targetPackage="org.pocketworkstation.pckeyboard"
+          android:targetPackage="lu.knaff.alain.son_of_hacker"
           android:targetClass="org.pocketworkstation.pckeyboard.PrefScreenView" />
     </PreferenceScreen>
 
@@ -108,7 +108,7 @@
             android:title="@string/language_selection_title"
             android:summary="@string/language_selection_summary">
         <intent
-            android:targetPackage="org.pocketworkstation.pckeyboard"
+            android:targetPackage="lu.knaff.alain.son_of_hacker"
             android:targetClass="org.pocketworkstation.pckeyboard.InputLanguageSelection" />
         />
     </PreferenceScreen>
@@ -147,7 +147,7 @@
             android:title="@string/pref_screen_feedback_title"
             android:summary="@string/pref_screen_feedback_title_summary">
       <intent
-          android:targetPackage="org.pocketworkstation.pckeyboard"
+          android:targetPackage="lu.knaff.alain.son_of_hacker"
           android:targetClass="org.pocketworkstation.pckeyboard.PrefScreenFeedback" />
     </PreferenceScreen>
 
@@ -155,7 +155,7 @@
             android:title="@string/pref_screen_actions_title"
             android:summary="@string/pref_screen_actions_title_summary">
       <intent
-          android:targetPackage="org.pocketworkstation.pckeyboard"
+          android:targetPackage="lu.knaff.alain.son_of_hacker"
           android:targetClass="org.pocketworkstation.pckeyboard.PrefScreenActions" />
     </PreferenceScreen>
 
