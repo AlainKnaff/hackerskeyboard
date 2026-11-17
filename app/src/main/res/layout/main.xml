@@ -35,11 +35,13 @@
 				android:id="@+id/main_setup_btn_settings"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content" />
-			<EditText android:text="@string/main_setup_test"
+			<EditText android:text=""
 				android:id="@+id/main_setup_edit_test"
 				android:layout_width="fill_parent"
 				android:gravity="center"
-				android:layout_height="wrap_content" />
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:hint="@string/main_setup_test" />
 		</TableRow>
 		<TableRow>
 			<Button android:text="@string/main_setup_export"
