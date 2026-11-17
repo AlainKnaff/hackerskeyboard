@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lint>
-    <issue id="ExtraTranslation" severity="ignore" />
-    <!-- not pretty, but no reason why this should be blocking
-    -->
+    <issue id="IconDensities" severity="ignore" />
+    <!-- for all icons, there only seems to be a single density present -->
 
-    <issue id="NotificationPermission" severity="ignore" />
-    <!-- ignore this for now, obscure feature which most won't use,
-	 and if they do they'll grant the permission pro-actively -->
-
+    <issue id="ButtonStyle" severity="ignore" />
+    <!-- this is not a fashion show -->
 </lint>
