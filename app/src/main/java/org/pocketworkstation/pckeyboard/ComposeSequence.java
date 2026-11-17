@@ -37,10 +37,10 @@ public class ComposeSequence {
     private static final String TAG = "HK/ComposeSequence";
     
     protected static final Map<String, String> mMap =
-    	new HashMap<String, String>();
+        new HashMap<String, String>();
 
     protected static final Set<String> mPrefixes =
-    	new HashSet<String>();
+        new HashSet<String>();
 
     // Some convenience aliases for use in compose strings
     protected static final char UP          = (char)LatinKeyboardView.KEYCODE_DPAD_UP;
@@ -173,11 +173,11 @@ public class ComposeSequence {
             Log.w(TAG, "compose sequence is a subset: " + format(key));
 
         mMap.put(key, value);
-    	for (int i = 1; i < key.length(); ++i) {
+        for (int i = 1; i < key.length(); ++i) {
             String substr = key.substring(0, i);
             found |= mMap.containsKey(substr);
             mPrefixes.add(substr);
-    	}
+        }
 
         if (found)
             Log.w(TAG, "compose sequence is a superset: " + format(key));
@@ -200,8 +200,8 @@ public class ComposeSequence {
     }
 
     public void bufferKey(char code) {
-    	composeBuffer.append(code);
-    	//Log.i(TAG, "bufferKey code=" + (int) code + " => " + showString(composeBuffer.toString()));
+        composeBuffer.append(code);
+        //Log.i(TAG, "bufferKey code=" + (int) code + " => " + showString(composeBuffer.toString()));
     }
 
     // returns true if the compose sequence is valid but incomplete

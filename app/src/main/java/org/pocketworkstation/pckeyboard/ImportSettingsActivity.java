@@ -26,8 +26,8 @@ public class ImportSettingsActivity extends ComponentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-	importLauncher = registerForActivityResult(
+        super.onCreate(savedInstanceState);
+        importLauncher = registerForActivityResult(
             new ActivityResultContracts.OpenDocument(),
             uri -> {
                 if (uri != null) {
@@ -40,7 +40,7 @@ public class ImportSettingsActivity extends ComponentActivity {
                             }
                     }).start();
                 } else
-		    finish();
+                    finish();
             }
         );
         importLauncher.launch(new String[]{"application/zip"});
@@ -52,9 +52,9 @@ public class ImportSettingsActivity extends ComponentActivity {
                     .setTitle("Error while "+action)
                     .setMessage(t.toString())
                     .setPositiveButton(R.string.ok, (d, w) -> {
-			    d.dismiss();
-			    finish();
-		    })
+                            d.dismiss();
+                            finish();
+                    })
                     .show();
 
             });
@@ -110,8 +110,8 @@ public class ImportSettingsActivity extends ComponentActivity {
                     continue;
                 }
 
-		name=name.replace("org.pocketworkstation.pckeyboard",
-				  "lu.knaff.alain.son_of_hacker");
+                name=name.replace("org.pocketworkstation.pckeyboard",
+                                  "lu.knaff.alain.son_of_hacker");
 
                 File target = new File(dataDir, name);
                 String targetPath = target.getCanonicalPath();

@@ -26,20 +26,20 @@ public class ExportSettingsActivity extends ComponentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-	exportLauncher = registerForActivityResult(
+        exportLauncher = registerForActivityResult(
             new ActivityResultContracts.CreateDocument("application/zip"),
             uri -> {
                 if (uri != null) {
                     new Thread(() -> {
                             try {
                                 lockedWriteZipToUri(uri);
-				finish();
+                                finish();
                             } catch (Throwable t) {
                                 showError("exporting setting", t);
                             }
                     }).start();
                 } else
-		    finish();
+                    finish();
             }
         );
         exportLauncher.launch("hk-settings.zip");
@@ -51,9 +51,9 @@ public class ExportSettingsActivity extends ComponentActivity {
                     .setTitle("Error while "+action)
                     .setMessage(t.toString())
                     .setPositiveButton(R.string.ok, (d, w) -> {
-			    d.dismiss();
-			    finish();
-		    })
+                            d.dismiss();
+                            finish();
+                    })
                     .show();
 
             });
@@ -104,8 +104,8 @@ public class ExportSettingsActivity extends ComponentActivity {
                 addDirectoryToZip(root, file, zip);
             } else {
                 String entryName = root.toURI()
-		    .relativize(file.toURI())
-		    .getPath();
+                    .relativize(file.toURI())
+                    .getPath();
 
                 zip.putNextEntry(new ZipEntry(entryName));
 

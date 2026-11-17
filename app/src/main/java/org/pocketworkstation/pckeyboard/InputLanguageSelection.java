@@ -185,7 +185,7 @@ public class InputLanguageSelection extends PreferenceActivity {
             CheckBoxPreference pref = new CheckBoxPreference(this);
             Locale locale = mAvailableLanguages.get(i).locale;
             pref.setTitle(mAvailableLanguages.get(i).label +
-            		" [" + locale.toString() + "]");
+                          " [" + locale.toString() + "]");
             String fivecode = get5Code(locale);
             String language = locale.getLanguage();
             boolean checked = languageSelections.contains(fivecode);
@@ -196,15 +196,15 @@ public class InputLanguageSelection extends PreferenceActivity {
             if (has5Row) summaries.add("5-row");           
             if (has4Row) summaries.add("4-row");           
             if (hasDictionary(locale)) {
-            	summaries.add(getResources().getString(R.string.has_dictionary));
+                summaries.add(getResources().getString(R.string.has_dictionary));
             }
             if (!summaries.isEmpty()) {
-            	StringBuilder summary = new StringBuilder();
-            	for (int j = 0; j < summaries.size(); ++j) {
-            		if (j > 0) summary.append(", ");
-            		summary.append(summaries.get(j));
-            	}
-            	pref.setSummary(summary.toString());
+                StringBuilder summary = new StringBuilder();
+                for (int j = 0; j < summaries.size(); ++j) {
+                    if (j > 0) summary.append(", ");
+                    summary.append(summaries.get(j));
+                }
+                pref.setSummary(summary.toString());
             }
             parent.addPreference(pref);
         }
@@ -273,17 +273,17 @@ public class InputLanguageSelection extends PreferenceActivity {
     }
 
     private static String asString(Set<String> set) {
-    	StringBuilder out = new StringBuilder();
-    	out.append("set(");
-    	String[] parts = new String[set.size()];
-    	parts = set.toArray(parts);
+        StringBuilder out = new StringBuilder();
+        out.append("set(");
+        String[] parts = new String[set.size()];
+        parts = set.toArray(parts);
         Arrays.sort(parts);
         for (int i = 0; i < parts.length; ++i) {
-    		if (i > 0) out.append(", ");
-    		out.append(parts[i]);
-    	}
-    	out.append(")");
-    	return out.toString();
+            if (i > 0) out.append(", ");
+            out.append(parts[i]);
+        }
+        out.append(")");
+        return out.toString();
     }
     
     ArrayList<Loc> getUniqueLocales() {
@@ -294,27 +294,27 @@ public class InputLanguageSelection extends PreferenceActivity {
 //        
 //        // First, add zz_ZZ style full language+country locales
 //        for (int i = 0; i < sysLocales.length; ++i) {
-//        	String sl = sysLocales[i];
-//        	if (sl.length() != 5) continue;
-//        	localeSet.add(sl);
-//        	langSet.add(sl.substring(0, 2));
+//              String sl = sysLocales[i];
+//              if (sl.length() != 5) continue;
+//              localeSet.add(sl);
+//              langSet.add(sl.substring(0, 2));
 //        }
 //        
 //        // Add entries for system languages without country, but only if there's
 //        // no full locale for that language yet.
 //        for (int i = 0; i < sysLocales.length; ++i) {
-//        	String sl = sysLocales[i];
-//        	if (sl.length() != 2 || langSet.contains(sl)) continue;
-//        	localeSet.add(sl);
+//              String sl = sysLocales[i];
+//              if (sl.length() != 2 || langSet.contains(sl)) continue;
+//              localeSet.add(sl);
 //        }
         
         // Add entries for additional languages supported by the keyboard.
         for (int i = 0; i < KBD_LOCALIZATIONS.length; ++i) {
-        	String kl = KBD_LOCALIZATIONS[i];
-        	if (kl.length() == 2 && langSet.contains(kl)) continue;
-        	// replace zz_rYY with zz_YY
-        	if (kl.length() == 6) kl = kl.substring(0, 2) + "_" + kl.substring(4, 6);
-        	localeSet.add(kl);
+            String kl = KBD_LOCALIZATIONS[i];
+            if (kl.length() == 2 && langSet.contains(kl)) continue;
+            // replace zz_rYY with zz_YY
+            if (kl.length() == 6) kl = kl.substring(0, 2) + "_" + kl.substring(4, 6);
+            localeSet.add(kl);
         }
         Log.i(TAG, "localeSet=" + asString(localeSet));
         Log.i(TAG, "langSet=" + asString(langSet));
@@ -343,7 +343,7 @@ public class InputLanguageSelection extends PreferenceActivity {
                     // zz_rYY
                     l = new Locale(language, s.substring(4, 6));
                 } else {
-                    l = new Locale(language);                	
+                    l = new Locale(language);
                 }
                 
                 // Exclude languages that are not relevant to LatinIME
