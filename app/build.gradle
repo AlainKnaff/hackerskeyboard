@@ -1,15 +1,13 @@
 apply plugin: 'com.android.application'
 
-def appId = 'lu.knaff.alain.son_of_hacker'
-
 android {
     compileSdkVersion = 37
-    namespace = appId
+    namespace = 'lu.knaff.alain.son_of_hacker'
     buildFeatures {
         resValues true
     }
     defaultConfig {
-        applicationId = appId
+        applicationId = 'lu.knaff.alain.son_of_hacker'
         minSdkVersion = 24
         targetSdkVersion = 37
         versionCode = 1043007
