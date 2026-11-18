@@ -1,0 +1,4 @@
+- Keep French short_description under 80 characters as recommended by pipeline
+- Address some Lint warning, mostly unused resources
+- Removed stale lint exceptions / added new lint exceptions
+- Set application_id in one place, and use variable substitution in the other places where it is referenced. This way, it is easier not to overlook one instance of it, if ever it needs to change again

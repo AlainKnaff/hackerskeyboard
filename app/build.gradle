@@ -12,8 +12,8 @@ android {
         applicationId = appId
         minSdkVersion = 24
         targetSdkVersion = 37
-        versionCode = 1043006
-        versionName = "1.43.6"
+        versionCode = 1043007
+        versionName = "1.43.7"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
