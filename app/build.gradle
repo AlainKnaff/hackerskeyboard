@@ -1,10 +1,15 @@
 apply plugin: 'com.android.application'
 
+def appId = 'lu.knaff.alain.son_of_hacker'
+
 android {
     compileSdkVersion = 37
-    namespace = 'lu.knaff.alain.son_of_hacker'
+    namespace = appId
+    buildFeatures {
+        resValues true
+    }
     defaultConfig {
-        applicationId = 'lu.knaff.alain.son_of_hacker'
+        applicationId = appId
         minSdkVersion = 24
         targetSdkVersion = 37
         versionCode = 1043006
@@ -15,6 +20,7 @@ android {
                 cppFlags ""
             }
         }
+        resValue "string", "application_id", applicationId
     }
 
     signingConfigs {
