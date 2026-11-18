@@ -10,8 +10,8 @@ android {
         applicationId = 'lu.knaff.alain.son_of_hacker'
         minSdkVersion = 24
         targetSdkVersion = 37
-        versionCode = 1043007
-        versionName = "1.43.7"
+        versionCode = 1043008
+        versionName = "1.43.8"
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {

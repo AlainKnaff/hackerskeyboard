@@ -1,0 +1,2 @@
+- Don't put namespace and applicationId together by variable: even though gradle groks it, fdroid's scripts don't
+- Properly disable logging: the LOGI macro needs parameters!
