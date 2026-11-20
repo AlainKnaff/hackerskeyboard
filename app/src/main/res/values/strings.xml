@@ -484,7 +484,12 @@
           <p>&#8226; When typing, slide the space bar horizontally to switch between selected layouts.
 
         <h3>Optional: Install completion dictionary packages:</h3>
-          <p>&#8226; Press the <b>More</b> button above to do a Play Store search for the keyboard's developer name, this will show free downloadable completion dictionary packages.</p>
+          <p>&#8226; Son of Hacker's keyboard is compatible with <a href="https://anysoftkeyboard.github.io/languages/">AnysoftKeyboard's
+          dictionaries</a> (compatible API), which you find easily on
+          F-Droid, except for an English dictionary. Probably because
+          English in built into AnysoftKeyboard, and thus it doesn't
+          need any external dictionary for it. Fortunately, you can
+          still find an older (?) version of an English dictionary at <a href="https://apkpure.com/english-for-anysoftkeyboard/com.anysoftkeyboard.languagepack.mirfatif.english">Apkpure</a>.</p>
 
         <h3>Optional: exporting and importing settings:</h3>
          <p>I am planning to put this hacker's keyboard onto
