@@ -21,6 +21,7 @@ import lu.knaff.alain.son_of_hacker.R;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.app.backup.BackupManager;
 import android.content.DialogInterface;
@@ -29,6 +30,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -67,6 +69,9 @@ public class LatinIMESettings extends PreferenceActivity
     private boolean mOkClicked = false;
     private String mVoiceModeOff;
 
+    private static final int REQUEST_POST_NOTIFICATIONS = 100;
+    private CheckBoxPreference notificationsCheckbox;
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -87,6 +92,46 @@ public class LatinIMESettings extends PreferenceActivity
 
         mVoiceModeOff = getString(R.string.voice_mode_off);
         mVoiceOn = !(prefs.getString(VOICE_SETTINGS_KEY, mVoiceModeOff).equals(mVoiceModeOff));
+
+
+        notificationsCheckbox =
+            (CheckBoxPreference) findPreference(LatinIME.PREF_KEYBOARD_NOTIFICATION);
+        notificationsCheckbox
+	    .setOnPreferenceChangeListener((preference, newValue) -> {
+                if (!(Boolean) newValue)
+                    return true; // Allow turning it off.
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+                    && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(new String[] {
+			    Manifest.permission.POST_NOTIFICATIONS
+			},
+			REQUEST_POST_NOTIFICATIONS);
+                    return false; // Wait for the permission result.
+                }
+
+                return true; // Permission already granted, or Android 12L and earlier.
+            });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+					   String[] permissions,
+					   int[] grantResults) {
+	super.onRequestPermissionsResult(requestCode, permissions,
+					 grantResults);
+
+	if (requestCode != REQUEST_POST_NOTIFICATIONS) {
+	    return;
+	}
+
+	for(int i=0; i < permissions.length; i++) {
+	    if(permissions[i].equals(Manifest.permission.POST_NOTIFICATIONS) &&
+	       grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+		notificationsCheckbox.setChecked(true);
+	    }
+	}
     }
 
     @Override
