@@ -1,0 +1,5 @@
+- Backed out removal of english_ime_* translations
+- Supplied missing French translations for the main settings page
+- When user checks "Use permanent notification button", trigger permission dialog if application doesn't have the permission yet
+- Fix main page paragraph on dictionaries, remove "More" button
+- Express dimensions as dp rather than inch (as recommended by Lint)
