@@ -20,7 +20,9 @@
 
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- <string name="english_ime_name" msgid="7252517407088836577">"Clavier Android"</string> -->
     <string name="english_ime_settings">Paramètres pour fils du clavier du Hacker</string>
+    <string name="english_ime_input_options" msgid="3909945612939668554">"Options de saisie"</string>
 
     <string name="title_keyboard_view_settings">Paramètres d\'affichage du clavier</string>
     <string name="title_keyboard_height_portrait">Hauteur du clavier, mode portrait</string>
@@ -34,7 +36,7 @@
     <string name="title_input_connection_details">Informations relatives à la connexion de saisie</string>
     <string name="title_version">Version</string>
     <string name="title_swipe_gestures">Gestes de balayage (en phase d\'expérimentation)</string>
-    <string name="title_hardware_key_actions">Actions associées aux clés matérielles</string>
+    <string name="title_hardware_key_actions">Actions associées aux touches matérielles</string>
 
 
     <string name="vibrate_on_keypress" msgid="5258079494276955460">"Vibrer à chaque touche"</string>

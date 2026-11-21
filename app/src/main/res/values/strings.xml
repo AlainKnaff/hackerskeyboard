@@ -21,11 +21,11 @@
 	   xmlns:tools="http://schemas.android.com/tools"
 	   >
     <!-- Title for Latin keyboard  -->
-    <string name="english_ime_name" translatable="false">Son of Hacker\'s Keyboard</string>
+    <string name="english_ime_name">Son of Hacker\'s Keyboard</string>
     <!-- Title for Latin keyboard settings activity / dialog -->
     <string name="english_ime_settings">Settings for Son of Hacker\'s Keyboard</string>
     <!-- Title for Latin keyboard input options dialog -->
-    <string name="english_ime_input_options" translatable="false">Input options</string>
+    <string name="english_ime_input_options">Input options</string>
 
     <!-- Various configuration titles -->
     <string name="title_keyboard_view_settings">Keyboard view settings</string>
