@@ -19,12 +19,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"
 	   xmlns:tools="http://schemas.android.com/tools"
-	   tools:ignore="MissingTranslation"
 	   >
     <!-- Title for Latin keyboard  -->
     <string name="english_ime_name" translatable="false">Son of Hacker\'s Keyboard</string>
     <!-- Title for Latin keyboard settings activity / dialog -->
-    <string name="english_ime_settings" translatable="false">Settings for Son of Hacker\'s Keyboard</string>
+    <string name="english_ime_settings">Settings for Son of Hacker\'s Keyboard</string>
     <!-- Title for Latin keyboard input options dialog -->
     <string name="english_ime_input_options" translatable="false">Input options</string>
 

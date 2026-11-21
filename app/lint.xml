@@ -5,4 +5,8 @@
 
     <issue id="ButtonStyle" severity="ignore" />
     <!-- this is not a fashion show -->
+
+    <issue id="MissingTranslation" severity="warning" />
+    <!-- should only be a warning -->
+
 </lint>

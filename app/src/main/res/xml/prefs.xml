@@ -137,6 +137,7 @@
     <CheckBoxPreference
             android:key="pref_shift_lock_modifiers"
             android:title="@string/title_shift_lock_modifiers"
+	    android:singleLineTitle="false"
             android:persistent="true"
             android:defaultValue="@bool/default_shift_lock_modifiers"
             android:summaryOn="@string/summary_shift_lock_modifiers_true"

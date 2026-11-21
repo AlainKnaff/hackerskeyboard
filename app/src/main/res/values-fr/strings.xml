@@ -20,6 +20,23 @@
 
 <resources
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="english_ime_settings">Paramètres pour fils du clavier du Hacker</string>
+
+    <string name="title_keyboard_view_settings">Paramètres d\'affichage du clavier</string>
+    <string name="title_keyboard_height_portrait">Hauteur du clavier, mode portrait</string>
+    <string name="title_keyboard_height_landscape">Hauteur du clavier, mode paysage</string>
+    <string name="title_key_layout_options">Options de disposition du clavier</string>
+    <string name="title_key_behavior_settings">Paramètres comportement des touches</string>
+    <string name="title_long_press_alternate_keys">Appui long pour touches alternatives</string>
+    <string name="title_suggested_punctuation">Suggestions de ponctuation</string>
+    <string name="title_input_mode_settings">Paramètres du mode de saisie</string>
+    <string name="title_debugging">Débogage</string>
+    <string name="title_input_connection_details">Informations relatives à la connexion de saisie</string>
+    <string name="title_version">Version</string>
+    <string name="title_swipe_gestures">Gestes de balayage (en phase d\'expérimentation)</string>
+    <string name="title_hardware_key_actions">Actions associées aux clés matérielles</string>
+
+
     <string name="vibrate_on_keypress" msgid="5258079494276955460">"Vibrer à chaque touche"</string>
     <string name="sound_on_keypress" msgid="6093592297198243644">"Son à chaque touche"</string>
     <string name="popup_on_keypress" msgid="123894815723512944">"Agrandir les caractères"</string>
@@ -31,7 +48,7 @@
     <string name="show_suggestions_summary" msgid="1989672863935759654">"Afficher les suggestions de terme lors de la saisie"</string>
     <string name="auto_complete" msgid="1103196318775486023">"Saisie semi-automatique"</string>
     <string name="auto_complete_summary" msgid="6113149638718274624">"Insérer auto. le terme surligné avec barre espace/ponctuation"</string>
-    <string name="prefs_settings_key" msgid="4623341240804046498">"Afficher touche paramètr."</string>
+    <string name="prefs_settings_key" msgid="4623341240804046498">"Afficher touche paramètres"</string>
     <string name="settings_key_mode_auto_name" msgid="2993460277873684680">"Automatique"</string>
     <string name="settings_key_mode_always_show_name" msgid="3047567041784760575">"Toujours afficher"</string>
     <string name="settings_key_mode_always_hide_name" msgid="7833948046716923994">"Toujours masquer"</string>
@@ -70,5 +87,105 @@
     <string name="has_dictionary" msgid="6071847973466625007">"Dictionnaire disponible"</string>
     <string name="prefs_enable_recorrection" msgid="4588408906649533582">"Appuyer pour corriger les suggestions"</string>
     <string name="prefs_enable_recorrection_summary" msgid="1056068922330206170">"Appuyer sur les mots saisis pour les corriger"</string>
+
+    <string name="pref_screen_feedback_title">Paramètres de retour tactile des touches</string>
+    <string name="pref_screen_feedback_title_summary">Configurer les sons des touches, le mode vibreur, la fenêtre contextuelle d\'aperçu, etc.</string>
+
+    <string name="pref_screen_view_title">Paramètres du thème et des libellés</string>
+    <string name="pref_screen_view_title_summary">Configurer l\'apparence et l\'affichage des libellés</string>
+
     <string name="keyboard_layout" msgid="437433231038683666">"Thème du clavier"</string>
+
+    <string name="title_keyboard_mode_portrait">Mode clavier, orientation portrait</string>
+    <string name="title_keyboard_mode_landscape">Mode clavier, orientation paysage</string>
+    <string-array name="keyboard_mode_entries">
+        <item>Disposition « Gingerbread » à 4 rangées</item>
+        <item>Disposition compacte à 5 rangées (QWERTY américain uniquement !)</item>
+        <item>Configuration complète à 5 rangées</item>
+    </string-array>
+
+    <string name="title_ctrl_a_override">Remplacer la combinaison Ctrl-A (tout sélectionner)</string>
+    <string name="toast_ctrl_a_override_info">Combinaison Ctrl-A désactivée. Utilisez plutôt Ctrl-Alt-A, ou activez-la dans les paramètres.</string>
+    <string name="default_ctrl_a_override">0</string>
+    <string-array name="ctrl_a_override_entries">
+        <item>Désactivez la combinaison Ctrl-A et utilisez plutôt Ctrl-Alt-A</item>
+        <item>Désactiver complètement la combinaison Ctrl+A</item>
+        <item>Utilisez Ctrl-A (sans substitution nécessaire)</item>
+    </string-array>
+
+    <string name="title_chording_ctrl_key">Code de la touche Ctrl</string>
+    <string name="default_chording_ctrl_key">0</string>
+    <string-array name="chording_ctrl_key_entries">
+        <item>Aucune (ignorée si elle ne modifie pas d\'autres touches)</item>
+        <item>Ctrl gauche</item>
+        <item>Ctrl droit</item>
+    </string-array>
+
+    <string name="title_chording_alt_key">Code de la touche Alt</string>
+    <string name="default_chording_alt_key">0</string>
+    <string-array name="chording_alt_key_entries">
+        <item>Aucune (ignorée si elle ne modifie pas d\'autres touches)</item>
+        <item>Alt gauche</item>
+        <item>Alt droit</item>
+    </string-array>
+
+    <string name="title_chording_meta_key">Code de la touche Meta</string>
+    <string name="default_chording_meta_key">0</string>
+    <string-array name="chording_meta_key_entries">
+        <item>Aucune (ignorée si elle ne modifie pas d\'autres touches)</item>
+        <item>Meta gauche</item>
+        <item>Meta droit</item>
+    </string-array>
+
+    <string name="title_suggestions_in_landscape">Suggestions en mode paysage</string>
+    <string name="summary_suggestions_in_landscape_true">Comme en mode portrait</string>
+    <string name="summary_suggestions_in_landscape_false">Masquer les suggestions en mode paysage</string>
+
+    <string name="title_fullscreen_override">Éditeur plein écran en mode paysage</string>
+    <string name="summary_fullscreen_override_true">Désactivé, utiliser l\'affichage standard</string>
+    <string name="summary_fullscreen_override_false">Activé sur les petits appareils</string>
+
+    <string name="title_force_keyboard_on">Afficher le clavier virtuel</string>
+    <string name="summary_force_keyboard_on_true">Toujours</string>
+    <string name="summary_force_keyboard_on_false">Lorsqu\'aucun clavier physique n\'est disponible</string>
+
+    <string name="title_keyboard_notification">Utiliser la notification permanente</string>
+    <string name="summary_keyboard_notification_true">Activez le clavier en appuyant sur la notification</string>
+    <string name="summary_keyboard_notification_false">Aucune notification</string>
+
+    <string name="title_caps_lock">Mode « Double-tap Shift »</string>
+    <string name="summary_caps_lock_true">Verrouillage des majuscules (q1 => Q1)</string>
+    <string name="summary_caps_lock_false">Verrouillage de la touche Maj (q1 => Q !)</string>
+
+    <string name="title_shift_lock_modifiers">Appliquer le verrouillage des touches « Maj » aux touches de modification ?</string>
+    <string name="summary_shift_lock_modifiers_true">Oui, y compris les touches fléchées</string>
+    <string name="summary_shift_lock_modifiers_false">Non, uniquement des touches normales</string>
+
+    <string name="title_touch_pos">Débogage de la position de l\'écran tactile</string>
+    <string name="summary_touch_pos_true">Afficher les commentaires relatifs à l\'emplacement de l\'écran tactile</string>
+    <string name="summary_touch_pos_false">Désactivé</string>
+
+    <string name="title_slide_keys">Événements liés au geste de glissement au-dessus des touches</string>
+    <string-array name="slide_keys_entries">
+        <item>Ignorer les touches pendant un geste de glissement (recommandé)</item>
+        <item>Envoyer la première touche balayée</item>
+        <item>Envoyer la dernière touche balayée</item>
+        <item>Envoyer la première et la dernière touche</item>
+        <item>Envoyer toutes les touches balayées</item>
+    </string-array>
+
+    <string name="title_long_press_duration">Durée d\'un appui long</string>
+
+    <string name="pref_screen_actions_title">Gestes et actions associées aux touches</string>
+    <string name="pref_screen_actions_title_summary">Configurer les actions associées aux gestes de balayage et aux touches matérielles</string>
+
+    <string name="title_popup_content">Contenu du mini-clavier qui apparaît à l\'appui long</string>
+    <string-array name="popup_content_entries">
+        <item>Pas de mini-clavier apparaît</item>
+        <item>Pas de mini-clavier, mais déclenche répétition touche</item>
+        <item>Uniquement touches pas couvertes ailleurs: 3 &#x21d2; ³, e &#x21d2; é</item>
+        <item>Ajouter touches shiftées: 3 &#x21d2; #³, e &#x21d2; é</item>
+        <item>Ajouter majuscules: 3 &#x21d2; #³, e &#x21d2; Eé</item>
+        <item>Ajouter touche elle-même: 3 &#x21d2; 3#³, e &#x21d2; eEé</item>
+    </string-array>
 </resources>
